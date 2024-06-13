@@ -1,0 +1,28 @@
+<header>
+    <div class="container">
+        <div class="title-container">
+            <h1 class="title">Academic Planner Generator</h1>
+        </div>
+    </div>
+    <div class="content-container">
+        <div class="left-side">
+            <div class="form-container">
+                <h2>Semester Info</h2>
+                <div class="sub">(For start/end dates, only enter month and year as shown.)</div>
+                <form [formGroup]="generatePlanner" (submit)="submitPlanner()">
+                    <label for="start">Start Date (ex. 06/2024):</label><br>
+                    <input type="text" id="start" formControlName="start"><br>
+                    <div class="buffer"></div>
+                    <label for="end">End date (ex. 11/2024):</label><br>
+                    <input type="text" id="term" formControlName="end"><br>
+                    <div class="buffer"></div>
+                    <button type="submit" class="primary">Generate Planner</button>
+                </form>
+            </div>
+        </div>
+        <div class="middle"></div>
+        <div class="right-side">
+            Hi
+        </div>
+    </div>
+</header>
