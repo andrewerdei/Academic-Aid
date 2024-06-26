@@ -1,1 +1,66 @@
-<p>grade-tracker works!</p>
+<header>
+    <div class="container">
+        <div class="title-container">
+            <h1 class="title">Grade-Tracker Generator</h1>
+        </div>
+    </div>
+    <div class="content-container">
+        <div class="left-side">
+            <div class="form-container">
+                <h2>Semester Info</h2>
+                <form [formGroup]="courseform" class="form-content" (submit)="submitTracker()">
+                    <div formArrayName="info" class="course">
+                        <input placeholder="Name" formControlName="stuname" type="text"/>
+                        <input placeholder="School" formControlName="school" type="text"/>
+                        <input placeholder="Term" formControlName="term" type="text"/>
+                    </div>
+                    <button [disabled]="!courseform.valid" type="submit" style="width: 100px; margin-left: 227px;">Generate</button>
+                    <div formArrayName="courses">
+                        <div *ngFor="let course of courses.controls; let i=index" class="course">
+                            <div [formGroupName]="i">
+                                <div class="coursedetails">
+                                    <h3>Course Details</h3>
+                                    <input placeholder="Course Name" formControlName="coursename" type="text" class="coursename"/>
+                                    <input placeholder="Credits" formControlName="credits" type="number"class="credits"/>
+                                    <div></div>
+                                    <input placeholder="Professor" formControlName="professor" type="text" class="professor" />
+                                    <div></div>
+                                    <input placeholder="Email" formControlName="email" type="text" class="email" />
+                                    <h3 style="margin-left: 150px;">Grading Criteria</h3>
+                                </div>
+                                <div class="delcourse-container">
+                                    <button type="button" (click)="deleteCourse(i)" style="padding: 0; position: absolute; top: 50%; right: 0; transform: translate(0, -50%); width: 40px; height: 40px;">
+                                        <img style="left:0;" src="assets/images/trash.png"/>
+                                    </button>
+                                </div>
+                                <div formArrayName="categories">
+                                    <div *ngFor="let category of getcategories(i).controls; let j=index">
+                                        <div class="cat-container">
+                                            <div [formGroupName]="j">
+                                                <input placeholder="Category" formControlName="category" type="text" class="category"/>
+                                                <input placeholder="Weight" formControlName="weight" type="number" class="weight"/>
+                                                <button type="button" (click)="deleteCategory(j, getcategories(i))" style="width:25px; height:25px; padding: 0; float: right; margin-top:4px;">
+                                                    <img style="width: 20px; height: 20px; right:0;" src="assets/images/trash.png"/>
+                                                </button>
+                                            </div> 
+                                        </div>
+                                    </div>
+                                    <button type="button" (click)="addCategory(course.get('categories'))" style="margin-left: 225px; margin-bottom: 10px; font-weight: bold; font-size: 100%;">&#43;</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" (click)="addCourse()" style="width: 35px; height: 35px; font-size: 30px; font-weight: bold; padding-top: 0;">&#43;</button>
+                </form>
+            </div>
+
+        </div>
+        <div class="center"></div>
+        <div class="right-side">
+            <img src="assets/images/grade1.png" class="image">
+            <div class="buffer"></div>
+            <img src="assets/images/grade2.png" class="image">
+        </div>
+
+    </div>
+</header>

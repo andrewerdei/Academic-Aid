@@ -1,17 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 
 .container{
     margin: 0 auto;
     height: 70px;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
 }
 
 .title-container{
     margin: 0 auto;
     padding: 0;
-    background: white;
     position: relative;
     vertical-align: middle;
     width: 50%;
@@ -35,7 +33,6 @@
     display: flex;
     height: 100vh;
     width: 100%;
-    border: 1px solid black;
     justify-content: space-between;
 }
 
@@ -44,18 +41,16 @@
     position: relative;
     left: 0;
     justify-content: center;
-    border: 1px solid red;
 }
 
 .right-side{
     width: 49.5%;
     right: 0;
-    border: 1px solid blue;
+    justify-content: center;
 }
 
 .middle{
     width: 1%;
-    border: 1px solid black;
 }
 
 .form-container{
@@ -66,8 +61,9 @@
     top: 4%;
     width: 60%;
     height: 400px;
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 5px;
+    background-color: #ededed;
 }
 
 .input-box{
@@ -95,4 +91,28 @@ h3{
     text-align: center;
     font-size: 12px;
     margin-bottom: 20px;
+}
+
+.download-container{
+    display: flex;
+    width: 100%;
+    height: 160px;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+.download{
+    background-color: bisque;
+    width: 80px;
+    height: 80px;
+    margin-top: 10%;
+    border-radius: 5px;
+}
+
+.image{
+    height: 300px;
+    width: 550px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-left: 10%;
 }

@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
 @Injectable()
 
-export class PlannerGenService {
-
+export class TrackerGenService {
+  
   baseUrl:string = "http://127.0.0.1:5000"
   constructor(private http: HttpClient) { }
 
-  download(start: string, end: string, fileName: string) {
-    return this.http.post('http://127.0.0.1:5000/static/academic-planner', {start, end, fileName}, { observe: 'response', responseType: 'blob'});
+  download(data: string, fileName: string) {
+    return this.http.post('http://127.0.0.1:5000/static/grade-tracker', {data, fileName}, { observe: 'response', responseType: 'blob'});
   }
   
   downloadFile(data: Response | any, fileName: string) {
@@ -19,6 +19,4 @@ export class PlannerGenService {
     link.download = fileName;
     link.click();
   }
-
-
 }

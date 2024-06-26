@@ -1,5 +1,12 @@
-<ul>
-    <li *ngFor="let example of examples">
-        <img [src]="example" alt="{{example}}">
-    </li>
-</ul>
+<div class="home-container">
+    <div class="home-title-container">
+        <h1 class="home-title">Academic - Aid</h1>
+        <h2 class="subtitle">Get organized with free and simple academic tools!</h2>
+    </div>
+    <div class="buffer"></div>
+    <div class="gallery-container">
+        <div class="gallery">
+            <app-image-slider [slides]="slides"></app-image-slider>
+        </div>
+    </div>
+</div>
