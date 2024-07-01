@@ -4,12 +4,10 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 
 export class PlannerGenService {
-
-  baseUrl:string = "http://127.0.0.1:5000"
   constructor(private http: HttpClient) { }
 
   download(start: string, end: string, fileName: string) {
-    return this.http.post('http://127.0.0.1:5000/static/academic-planner', {start, end, fileName}, { observe: 'response', responseType: 'blob'});
+    return this.http.post('https://andrewerdei.pythonanywhere.com/static/academic-planner', {start, end, fileName}, { observe: 'response', responseType: 'blob'});
   }
   
   downloadFile(data: Response | any, fileName: string) {

@@ -11,6 +11,7 @@ import { TrackerGenService } from '../services/tracker-gen/tracker-gen.service';
 export class GradeTrackerComponent {
 
   courseform: FormGroup;
+  error: any = null;
 
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.courseform = this.fb.group({
@@ -55,27 +56,30 @@ export class GradeTrackerComponent {
   downloadtracker() {
     let data = this.courseform.value ?? ''
     let fileName = "Grades_" + String(this.courseform.value['info']['term']) + ".xlsx"
-    /*this.http.post<any>('http://127.0.0.1:5000/static/grade-tracker', { data, fileName }).subscribe(data => {
-      let re = Response
-  })*/
 
     
     this.trackergenService.download(data, fileName).subscribe((response: any) => {
-        if ('application/json' === response.headers.get('Content-Type')) {
-            const reader = new FileReader();
-            reader.addEventListener('loadend', (e:any) => {
-              console.log(JSON.parse(e.srcElement['result']));
-              let errorResponse = JSON.parse(e.srcElement['result']);
-              console.log('Message - got json instead of file', errorResponse.message);
-            });
-            reader.readAsText(response.body);
-          } else {
-            console.log('File downloaded successfully.');
-            this.trackergenService.downloadFile(response.body, fileName);
-          }
+      if ('application/json' === response.headers.get('Content-Type')) {
+          const reader = new FileReader();
+          reader.addEventListener('loadend', (e:any) => {
+            console.log(JSON.parse(e.srcElement['result']));
+            let errorResponse = JSON.parse(e.srcElement['result']);
+            console.log('Message - got json instead of file', errorResponse.message);
+          });
+          reader.readAsText(response.body);
+        } else {
+          console.log('File downloaded successfully.');
+          this.trackergenService.downloadFile(response.body, fileName);
+        }
+    },
+    (error) => {
+      error.error.text().then((text: string) => {
+        this.error = text;
+        let error_msg = text;
+        console.log(error_msg)
     });
+  });
 }
-  /*dict of class:[[credits, prof, email], (category, weight)...]*/
 
 
   get courses(): FormArray{

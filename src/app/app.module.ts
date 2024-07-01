@@ -20,11 +20,11 @@ import { TrackerGenService } from './services/tracker-gen/tracker-gen.service';
     HeaderComponent,
     HomeComponent,
     GradeTrackerComponent,
+    AcademicPlannerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AcademicPlannerComponent,
     ImageSliderComponent,
     CommonModule,
     ReactiveFormsModule,

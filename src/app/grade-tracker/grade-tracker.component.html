@@ -8,13 +8,14 @@
         <div class="left-side">
             <div class="form-container">
                 <h2>Semester Info</h2>
+                <div ng-hide="error == null" style="font-size: 15px; font-style: italic; color: red;">{{error}}</div>
                 <form [formGroup]="courseform" class="form-content" (submit)="submitTracker()">
                     <div formArrayName="info" class="course">
                         <input placeholder="Name" formControlName="stuname" type="text"/>
                         <input placeholder="School" formControlName="school" type="text"/>
                         <input placeholder="Term" formControlName="term" type="text"/>
                     </div>
-                    <button [disabled]="!courseform.valid" type="submit" style="width: 100px; margin-left: 227px;">Generate</button>
+                    <button [disabled]="!courseform.valid" type="submit" style="width: 100px; height: 40px; font-weight: bold;">Generate</button>
                     <div formArrayName="courses">
                         <div *ngFor="let course of courses.controls; let i=index" class="course">
                             <div [formGroupName]="i">
