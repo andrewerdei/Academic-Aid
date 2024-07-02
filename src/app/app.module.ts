@@ -13,6 +13,7 @@ import { PlannerGenService } from './services/planner-gen/planner-gen.service';
 import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TrackerGenService } from './services/tracker-gen/tracker-gen.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { TrackerGenService } from './services/tracker-gen/tracker-gen.service';
     ImageSliderComponent,
     CommonModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [PlannerGenService, provideHttpClient(withInterceptorsFromDi()), TrackerGenService],
   bootstrap: [AppComponent]

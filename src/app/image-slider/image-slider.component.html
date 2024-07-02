@@ -3,8 +3,12 @@
         <div class="leftArrow" (click)="goToPrevious()">&#10094;</div>
         <div class="rightArrow" (click)="goToNext()">&#10095;</div>
     </div>
-    <div class="slide" [style]="{'background-image': getCurrentSlideUrl()}"></div>
+    <div class="slide" *ngIf="!isChanging" @fadeInOut (@fadeInOut.done)="onAnimationDone($event)" [style]="{'background-image': getCurrentSlideUrl()}"></div>
     <div class="dotsContainer">
-        <div *ngFor="let slide of slides; let slideIndex = index" class="dot" (click)="goToSlide(slideIndex)">&#11044;</div>
+        <ng-container *ngFor="let slide of slides; let slideIndex = index">
+            <div *ngIf="currentIndex == slideIndex" class="cur-dot" (click)="goToSlide(slideIndex)">&#11044;</div>
+            <div *ngIf="currentIndex != slideIndex" class="dot" (click)="goToSlide(slideIndex)">&#11044;</div>
+
+        </ng-container>
     </div>
 </div>
