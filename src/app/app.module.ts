@@ -21,11 +21,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeaderComponent,
     HomeComponent,
     GradeTrackerComponent,
+    AcademicPlannerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AcademicPlannerComponent,
     ImageSliderComponent,
     CommonModule,
     ReactiveFormsModule,

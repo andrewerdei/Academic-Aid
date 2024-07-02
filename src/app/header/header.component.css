@@ -3,6 +3,13 @@ header{
     padding: 0;
 }
 
+.head-container{
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .grad{
     background-image: linear-gradient(to right,black, white, black);
     height: 2px;
@@ -17,12 +24,6 @@ a{
 a:hover{
     background-image: linear-gradient(to bottom, white, rgb(219, 219, 219), white);
     color: black;
-}
-
-.container{
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
 }
 
 a.logo{

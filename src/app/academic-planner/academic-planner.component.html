@@ -8,15 +8,20 @@
         <div class="left-side">
             <div class="form-container">
                 <h2>Semester Info</h2>
-                <div class="sub">(For start/end dates, only enter month and year as shown.)</div>
-                <form [formGroup]="generatePlanner" (submit)="submitPlanner()">
-                    <label for="start">Start Date:</label><br>
-                    <input placeholder="06/2024" type="text" id="start" formControlName="start"><br>
+                <div class="sub">Enter the start and end dates of your semester <br/>and then press generate!
+                </div>
+                <form [formGroup]="plannerform" (submit)="submitPlanner()">
+                    <label for="start">Start Month:</label><br>
+                    <input type="month" id="start" formControlName="start"/>
+                    <br>
                     <div class="buffer"></div>
-                    <label for="end">End Date:</label><br>
-                    <input placeholder="11/2024" type="text" id="term" formControlName="end"><br>
+                    <label for="end">End Month:</label><br>
+                    <input type="month" id="end" formControlName="end"/>
+                    <br>
                     <div class="buffer"></div>
-                    <button type="submit" class="primary">Generate Planner</button>
+                    <div ng-hide="error == null" style="font-size: 15px; font-style: italic; color: red;">{{error}}</div>
+                    <div class="buffer"></div>
+                    <button [disabled]="!plannerform.valid" type="submit" style="height: 50px; font-weight: bold">Generate Planner</button>
                 </form>
             </div>
         </div>
