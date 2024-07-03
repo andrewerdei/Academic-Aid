@@ -37,6 +37,7 @@ h2{
 
 .form-container{
     display: flex;
+    margin-left: 18%;
     flex-direction: column;
     padding: 20px;
     background-color: #ededed;

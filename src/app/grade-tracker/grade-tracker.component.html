@@ -30,8 +30,8 @@
                                     <h3 style="margin-left: 150px;">Grading Criteria</h3>
                                 </div>
                                 <div class="delcourse-container">
-                                    <button type="button" (click)="deleteCourse(i)" style="padding: 0; position: absolute; top: 50%; right: 0; transform: translate(0, -50%); width: 40px; height: 40px;">
-                                        <img style="left:0;" src="assets/images/trash.png"/>
+                                    <button type="button" (click)="deleteCourse(i)" style="padding: 0; position: absolute; top: 50%; right: 0; transform: translate(0, -50%); width: 40px; height: 40px; background-size: contain; background-image: url(assets/images/trash.png);">
+
                                     </button>
                                 </div>
                                 <div formArrayName="categories">
@@ -40,18 +40,17 @@
                                             <div [formGroupName]="j">
                                                 <input placeholder="Category" formControlName="category" type="text" class="category"/>
                                                 <input placeholder="Weight" formControlName="weight" type="number" class="weight"/>
-                                                <button type="button" (click)="deleteCategory(j, getcategories(i))" style="width:25px; height:25px; padding: 0; float: right; margin-top:4px;">
-                                                    <img style="width: 20px; height: 20px; right:0;" src="assets/images/trash.png"/>
+                                                <button type="button" (click)="deleteCategory(j, getcategories(i))" style="width:25px; height:25px; padding: 0; float: right; margin-top:4px; background-size: contain; background-image: url(assets/images/trash.png);">
                                                 </button>
                                             </div> 
                                         </div>
                                     </div>
-                                    <button type="button" (click)="addCategory(course.get('categories'))" style="margin-left: 225px; margin-bottom: 10px; font-weight: bold; font-size: 100%;">&#43;</button>
+                                    <button type="button" (click)="addCategory(course.get('categories'))" style="text-align: center; margin-bottom: 10px; font-weight: bold; font-size: 100%;">&#43;</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button type="button" (click)="addCourse()" style="width: 35px; height: 35px; font-size: 30px; font-weight: bold; padding-top: 0;">&#43;</button>
+                    <button type="button" (click)="addCourse()" style="text-align: center; width: 35px; height: 35px; font-size: 30px; font-weight: bold; padding-top: 0;">&#43;</button>
                 </form>
             </div>
 

@@ -10,19 +10,23 @@
                 <h2>Semester Info</h2>
                 <div class="sub">Enter the start and end dates of your semester <br/>and then press generate!
                 </div>
-                <form [formGroup]="plannerform" (submit)="submitPlanner()">
-                    <label for="start">Start Month:</label><br>
-                    <input type="month" id="start" formControlName="start"/>
-                    <br>
-                    <div class="buffer"></div>
-                    <label for="end">End Month:</label><br>
-                    <input type="month" id="end" formControlName="end"/>
-                    <br>
-                    <div class="buffer"></div>
+                <div class="left-side" style="float: left; height: 200px; padding-left: 10%;">
+                    <form [formGroup]="plannerform" (submit)="submitPlanner()">
+                        <label for="start">Start Month:</label><br>
+                        <input type="month" id="start" formControlName="start"/>
+                        <br>
+                        <div class="buffer"></div>
+                        <label for="end">End Month:</label><br>
+                        <input type="month" id="end" formControlName="end"/>
+                        <br>
+                        <div class="buffer"></div>
+                        <div class="buffer"></div>
+                        <button [disabled]="!plannerform.valid" type="submit" style="height: 50px; font-weight: bold">Generate Planner</button>
+                    </form>
+                </div>
+                <div class="right-side" style="float: left; height: 200px;">
                     <div ng-hide="error == null" style="font-size: 15px; font-style: italic; color: red;">{{error}}</div>
-                    <div class="buffer"></div>
-                    <button [disabled]="!plannerform.valid" type="submit" style="height: 50px; font-weight: bold">Generate Planner</button>
-                </form>
+                </div>
             </div>
         </div>
         <div class="center"></div>
