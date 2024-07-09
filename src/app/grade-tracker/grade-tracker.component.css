@@ -1,21 +1,4 @@
 
-h2{
-    font-family: "Lato", sans-serif;
-    text-align: center;
-    margin-bottom: auto;
-}
-
-.info{
-    position: absolute;
-    vertical-align: middle;
-    padding: 20px;
-    left: 10%;
-    top: 4%;
-    width: 80%;
-    height: 700px;
-    border-radius: 5px;
-}
-
 .image{
     height: 275px;
     width: 550px;
@@ -24,22 +7,11 @@ h2{
     margin-left: 10%;
 }
 
-.buffer{
-    height: 10px;
-}
-
-.header-container{
-    width: 100%;
-    height: 50px;
-    padding-left: 27%;
-}
-
-
 .form-container{
     display: flex;
     margin-left: 18%;
     flex-direction: column;
-    padding: 20px;
+    padding: 5px;
     background-color: #ededed;
     width: 600px;
     border-radius: 5px;
@@ -55,59 +27,156 @@ h2{
     gap: 20px;
 }
 
-.course{
+.stu-info{
     display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    
+}
+
+.courses{
+    width: 100%;
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+.course{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
     width: 550px;
     border: 1px solid black;
     border-radius: 5px;
     position: relative;
     margin-bottom: 10px;
-    padding: 5px;
+    padding-bottom: 5px;
+    min-height: 35px;
+}
+
+.course-header{
+    top: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: 1px solid black;
+    width: 100%;
+    height: 35px;
+    position: absolute;
+    background-color: rgb(188, 188, 188);
+}
+
+.min-course{
+    line-height: 15px;
+    position: absolute; 
+    top: 5px; 
+    right:5px; 
+    font-weight: bold; 
+    height: 20px; 
+    width: 20px; 
+    text-align: center; 
+    border: 1px solid rgb(130, 130, 130); 
+    border-radius: 2px;
+}
+
+.del-course{
+    position: absolute;
+    padding: 0; 
+    top: 5px; 
+    right: 30px; 
+    height: 20px; 
+    width: 20px; 
+    border: 1px solid rgb(130, 130, 130); 
+    border-radius: 2px; 
+    background-size: contain; 
+    background-image: url("/static/assets/images/trash.png");
+}
+
+.add-course{
+    line-height: 25px;
+    text-align: center; 
+    width: 30px; 
+    height: 30px; 
+    font-size: 30px; 
+    font-weight: bold; 
+    padding: 0;
+    text-align: center;
 }
 
 .coursedetails{
+    margin-top: 40px;
     width: 400px;
-    height: 150px;
+    height: 65px;
     float: left;
-    margin-bottom: 10px;
-}
-
-.delcourse-container{
-    width: 100px;
-    height: 100px;
-    float: left;
-    position: relative;
 }
 
 .coursename{
-    width: 200px;
-    margin: 5px;
+    font-size: 1.17em;
+    margin-top: .3em;
+    margin-left: 5px;
+    width: 300px;
+    font-weight: bold;
+    color: black;
+    border: none;
+    background: none;
+}
+.coursename:focus{
+    outline: none;
 }
 
 .credits{
+    font-size: 1.17em;
+    margin-top: .3em;
     width: 100px;
-    margin: 5px;
+    font-weight: bold;
+    color: black;
+    border: none;
+    margin-left: 20px;
+    background: none;
+}
+.credits:focus{
+    outline: none;
 }
 
-.professor{
-    width: 250px;
-    margin: 5px;
-}
 
-.email{
-    width: 300px;
-    margin: 5px;
+.catform-container{
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    position: relative;
+    float: left;
+    margin-left: 5%;
+    align-items: center;
 }
 
 .cat-container{
     width: 400px;
     height: 35px;
     float: left;
-    margin-left: 30px;
     margin-bottom: 10px;
     padding-right: 10px;
     border: 1px solid black;
-    position: relative;
+}
+
+.add-cat{
+    line-height: 15px;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    text-align: center; 
+    margin-bottom: 5px;
+    font-weight: bold; 
+    font-size: 100%;
+}
+
+.del-cat{
+    width:20px; 
+    height:20px; 
+    padding: 0; 
+    float: right; 
+    margin-top: 6px; 
+    border: 1px solid rgb(130, 130, 130); 
+    border-radius: 2px; 
+    background-size: contain; 
+    background-image: url("/static/assets/images/trash.png");
 }
 
 .category{
@@ -128,4 +197,9 @@ h3{
     margin-top: 5px;
     margin-left: 5px;
     margin-bottom: 5px;
+}
+
+button[type=button]:hover{
+    border: 1.25px solid black;
+    background-color: #dfdfdf;
 }

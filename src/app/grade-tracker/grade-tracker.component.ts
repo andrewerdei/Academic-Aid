@@ -13,6 +13,12 @@ export class GradeTrackerComponent {
   courseform: FormGroup;
   error: any = null;
 
+  indices: number = 0;
+
+  coursedict: any = {
+    0: true
+  }
+
   constructor(private fb: FormBuilder, private http: HttpClient) {
     this.courseform = this.fb.group({
       info: this.fb.group({
@@ -57,7 +63,6 @@ export class GradeTrackerComponent {
     let data = this.courseform.value ?? ''
     let fileName = "Grades_" + String(this.courseform.value['info']['term']) + ".xlsx"
 
-    
     this.trackergenService.download(data, fileName).subscribe((response: any) => {
       if ('application/json' === response.headers.get('Content-Type')) {
           const reader = new FileReader();
@@ -79,7 +84,11 @@ export class GradeTrackerComponent {
         console.log(error_msg)
     });
   });
-}
+  }
+
+  getcoursename(index: number){
+    return this.courses.at(index).get('coursename')!.value;
+  }
 
 
   get courses(): FormArray{
@@ -90,12 +99,23 @@ export class GradeTrackerComponent {
     return this.courses.at(index).get('categories') as FormArray;
   }
 
-  deleteCourse(index: number) {
-    this.courses.removeAt(index);
+  minimizeCourse(i: number): void{
+    this.coursedict[i]=!this.coursedict[i];
   }
-  
+
+  deleteCourse(index: number) {                 //TODO: delete makes current course idx min when next course before del is open
+    delete(this.coursedict[index]);
+    for(let i=index; i<this.indices;i++){
+      this.coursedict[i] = this.coursedict[i+1];
+    }
+    this.courses.removeAt(index);
+    this.coursedict[this.indices] = true;
+    this.indices -= 1;
+  }
 
   addCourse() {
+    this.indices += 1;
+    this.coursedict[this.indices] = true;
     this.courses.push(this.fb.group({
       coursename: ['', {validators: Validators.required}],
       credits: ['', {validators: Validators.required}],

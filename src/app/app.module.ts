@@ -14,6 +14,7 @@ import { ImageSliderComponent } from './image-slider/image-slider.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TrackerGenService } from './services/tracker-gen/tracker-gen.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     GradeTrackerComponent,
     AcademicPlannerComponent,
+    BottomBarComponent,
   ],
   imports: [
     BrowserModule,
