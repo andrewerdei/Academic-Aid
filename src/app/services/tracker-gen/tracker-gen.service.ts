@@ -8,7 +8,7 @@ export class TrackerGenService {
   constructor(private http: HttpClient) { }
 
   download(data: string, fileName: string) {
-    return this.http.post('https://andrewerdei.pythonanywhere.com/static/grade-tracker', {data, fileName}, { observe: 'response', responseType: 'blob'});
+    return this.http.post('https://www.academicaid.xyz/static/grade-tracker', {data, fileName}, { observe: 'response', responseType: 'blob'});
   }
   
   downloadFile(data: Response | any, fileName: string) {
