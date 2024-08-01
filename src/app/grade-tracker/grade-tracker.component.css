@@ -8,8 +8,10 @@
 }
 
 .form-container{
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
-    margin-left: 18%;
+    position: relative;
     flex-direction: column;
     padding: 5px;
     background-color: #ededed;
@@ -36,7 +38,7 @@
 
 .courses{
     width: 100%;
-    max-height: 500px;
+    max-height: 45vh;
     overflow-y: scroll;
 }
 

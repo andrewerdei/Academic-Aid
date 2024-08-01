@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
 import { ErrorReportComponent } from './error-report/error-report.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     AcademicPlannerComponent,
     BottomBarComponent,
     ErrorReportComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
