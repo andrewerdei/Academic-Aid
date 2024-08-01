@@ -1,9 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable()
 
 export class TrackerGenService {
+
   constructor(private http: HttpClient) { }
 
   download(data: string, fileName: string) {

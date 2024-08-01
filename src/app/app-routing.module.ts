@@ -7,7 +7,8 @@ import { AcademicPlannerComponent } from './academic-planner/academic-planner.co
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'grade-tracker', component: GradeTrackerComponent },
-  {path: 'academic-planner', component: AcademicPlannerComponent}
+  {path: 'academic-planner', component: AcademicPlannerComponent},
+  {path: 'report'}
 ];
 
 @NgModule({

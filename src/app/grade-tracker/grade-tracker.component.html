@@ -9,7 +9,7 @@
             <div class="form-container">
                 <h2 style="margin-top: 0; margin-bottom: 5px; text-align: center;">Semester Info</h2>
                 <div ng-hide="error == null" style="font-size: 15px; font-style: italic; color: red;">{{error}}</div>
-                <form [formGroup]="courseform" class="form-content" (submit)="submitTracker()">
+                <form [formGroup]="courseform" class="form-content" (submit)="submitTracker()" method="post">
                     <div formArrayName="info" class="stu-info">
                         <input placeholder="Name" formControlName="stuname" type="text" style="width: 200px; height: 25px;"/>
                         <input placeholder="School" formControlName="school" type="text" style="width: 200px; height: 25px;"/>
