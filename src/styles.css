@@ -71,3 +71,19 @@ a{
     margin-top: 0;
 }
 
+.text-container{
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding: 5px;
+    height: 100px;
+    width: 50%;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #ededed;
+    color: rgb(60, 60, 60);
+    font-size: 15px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

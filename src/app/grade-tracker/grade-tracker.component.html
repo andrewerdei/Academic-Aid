@@ -6,59 +6,57 @@
     </div>
     <div class="content-container">
         <div class="left-side">
+            <div class="text-container">
+                This generator creates a spreadsheet where you can enter every grade you get
+                throughout the semester and automatically calculates your current semester GPA.<br/>
+                Simply enter your course syllabus details below and generate to start tracking!
+            </div>
             <div class="form-container">
-                <h2>Semester Info</h2>
-                <div ng-hide="error == null" style="font-size: 15px; font-style: italic; color: red;">{{error}}</div>
-                <form [formGroup]="courseform" class="form-content" (submit)="submitTracker()">
-                    <div formArrayName="info" class="course">
-                        <input placeholder="Name" formControlName="stuname" type="text"/>
-                        <input placeholder="School" formControlName="school" type="text"/>
-                        <input placeholder="Term" formControlName="term" type="text"/>
+                <h2 style="margin-top: 0; margin-bottom: 5px; text-align: center;">Semester Info</h2>
+                <div ng-hide="error == null" style="font-size: 15px; font-style: italic; color: red; text-align: center;">{{error}}</div>
+                <form [formGroup]="courseform" class="form-content" (submit)="submitTracker()" method="post">
+                    <div formArrayName="info" class="stu-info">
+                        <input placeholder="Name" formControlName="stuname" type="text" style="width: 200px; height: 25px;"/>
+                        <input placeholder="School" formControlName="school" type="text" style="width: 200px; height: 25px;"/>
+                        <input placeholder="Term" formControlName="term" type="text" style="width: 100px; height: 25px;"/>
                     </div>
                     <button [disabled]="!courseform.valid" type="submit" style="width: 100px; height: 40px; font-weight: bold;">Generate</button>
-                    <div formArrayName="courses">
-                        <div *ngFor="let course of courses.controls; let i=index" class="course">
+                    <div formArrayName="courses" class="courses">
+                        <div *ngFor="let course of courses.controls; let i=index" class="course" [style.height]="coursedict[i]? '' : '35px'">
                             <div [formGroupName]="i">
-                                <div class="coursedetails">
-                                    <h3>Course Details</h3>
-                                    <input placeholder="Course Name" formControlName="coursename" type="text" class="coursename"/>
+                                <div class="course-header" [style.height]="coursedict[i]? '' : '100%'" [style.border-radius]="coursedict[i]? '':'5px'" [style.border-bottom]="coursedict[i]? '':'none'">
+                                    <input placeholder="Enter Course Name" formControlName="coursename" type="course" class="coursename"/>
                                     <input placeholder="Credits" formControlName="credits" type="number"class="credits"/>
-                                    <div></div>
-                                    <input placeholder="Professor" formControlName="professor" type="text" class="professor" />
-                                    <div></div>
-                                    <input placeholder="Email" formControlName="email" type="text" class="email" />
-                                    <h3 style="margin-left: 150px;">Grading Criteria</h3>
+                                    <button type="button" (click)="minimizeCourse(i)" class="min-course"><span>{{coursedict[i]?'-':'+'}}</span></button>
+                                    <button type="button" (click)="deleteCourse(i)" class="del-course"></button>
                                 </div>
-                                <div class="delcourse-container">
-                                    <button type="button" (click)="deleteCourse(i)" style="padding: 0; position: absolute; top: 50%; right: 0; transform: translate(0, -50%); width: 40px; height: 40px; background-size: contain; background-image: url(assets/images/trash.png);">
-
-                                    </button>
+                                <div class="coursedetails" [style.display]="!coursedict[i]? 'none' : 'block'">
+                                    <input placeholder="Professor" formControlName="professor" type="text" style="width: 300px; margin: 5px;" />
+                                    <input placeholder="Email" formControlName="email" type="text" style="width: 300px; margin: 5px;" />
                                 </div>
-                                <div formArrayName="categories">
-                                    <div *ngFor="let category of getcategories(i).controls; let j=index">
-                                        <div class="cat-container">
-                                            <div [formGroupName]="j">
-                                                <input placeholder="Category" formControlName="category" type="text" class="category"/>
-                                                <input placeholder="Weight" formControlName="weight" type="number" class="weight"/>
-                                                <button type="button" (click)="deleteCategory(j, getcategories(i))" style="width:25px; height:25px; padding: 0; float: right; margin-top:4px; background-size: contain; background-image: url(assets/images/trash.png);">
-                                                </button>
-                                            </div> 
-                                        </div>
+                                <div formArrayName="categories" class="catform-container" [style.display]="!coursedict[i]? 'none' : 'flex'">
+                                    <h3>Grading Criteria</h3>
+                                    <div *ngFor="let category of getcategories(i).controls; let j=index" class="cat-container">
+                                        <div [formGroupName]="j">
+                                            <input placeholder="Category" formControlName="category" type="text" class="category"/>
+                                            <input placeholder="Weight" formControlName="weight" type="number" class="weight"/>
+                                            <button type="button" (click)="deleteCategory(j, getcategories(i))" class="del-cat">
+                                            </button>
+                                        </div> 
                                     </div>
-                                    <button type="button" (click)="addCategory(course.get('categories'))" style="text-align: center; margin-bottom: 10px; font-weight: bold; font-size: 100%;">&#43;</button>
+                                    <button type="button" (click)="addCategory(course.get('categories'))" class="add-cat">&#43;</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <button type="button" (click)="addCourse()" style="text-align: center; width: 35px; height: 35px; font-size: 30px; font-weight: bold; padding-top: 0;">&#43;</button>
+                    <button type="button" (click)="addCourse()" class="add-course">&#43;</button>
                 </form>
             </div>
 
         </div>
         <div class="center"></div>
         <div class="right-side">
-            <img src="assets/images/grade1.png" class="image">
-            <div class="buffer"></div>
+            <img src="assets/images/grade1.png" class="image" style="margin-bottom: 10px;">
             <img src="assets/images/grade2.png" class="image">
         </div>
 

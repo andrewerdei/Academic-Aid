@@ -39,8 +39,10 @@ export class AcademicPlannerComponent {
   downloadexcel() {
     let start = String(this.plannerform.value.start)
     let end = String(this.plannerform.value.end)
+    console.log(start, end)
     let year1 = start.split('-')[0]
     let year2 = end.split('-')[0]
+    console.log(year1, year2)
 
     let fileName = "AcademicPlanner_" + year1 + "-" + year2 + ".xlsx"
     this.plannergenService.download(start, end, fileName).subscribe((response: any) => {
