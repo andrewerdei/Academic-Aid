@@ -7,7 +7,6 @@
     <div class="content-container">
         <div class="left-side">
             <div class="text-container">
-                Be on top of your grades this semester with this grade-tracking spreadsheet!<br/>
                 This generator creates a spreadsheet where you can enter every grade you get
                 throughout the semester and automatically calculates your current semester GPA.<br/>
                 Simply enter your course syllabus details below and generate to start tracking!
@@ -26,7 +25,7 @@
                         <div *ngFor="let course of courses.controls; let i=index" class="course" [style.height]="coursedict[i]? '' : '35px'">
                             <div [formGroupName]="i">
                                 <div class="course-header" [style.height]="coursedict[i]? '' : '100%'" [style.border-radius]="coursedict[i]? '':'5px'" [style.border-bottom]="coursedict[i]? '':'none'">
-                                    <input placeholder="Course Name" formControlName="coursename" type="course" class="coursename"/>
+                                    <input placeholder="Enter Course Name" formControlName="coursename" type="course" class="coursename"/>
                                     <input placeholder="Credits" formControlName="credits" type="number"class="credits"/>
                                     <button type="button" (click)="minimizeCourse(i)" class="min-course"><span>{{coursedict[i]?'-':'+'}}</span></button>
                                     <button type="button" (click)="deleteCourse(i)" class="del-course"></button>
